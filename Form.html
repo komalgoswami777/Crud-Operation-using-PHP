@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <title>Demo Form</title>
 <head>
+    <script>
+        function validate(){
+            var pass=document.f1.password.value;
+            var cpass=document.f1.cpassword.value;
+
+            if(pass!=cpass){
+                alert("password must be same");
+                return false;
+            }
+            else{
+                return true;
+            }
+
+        }
+    </script>
     <style>
          @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
         *{
@@ -34,7 +49,7 @@
 </head>
 <body>
     <a href="login.html" class="button">Login </a><br><br>
-<form action="create.php" method="POST">
+<form action="create.php" method="POST" onsubmit="return validate()" name="f1">
     <label for="">First</label><br>
             <input type="text" name="f_name" id=""><br>
             <label for="">Last</label><br>
@@ -47,6 +62,6 @@
             <input type="email" name="email" id=""><br>
             <label for="">mobile</label><br>
             <input type="text" name="mobile" id=""><br>
-    <button type="submit" name="submit"><a href="login.html">Create</a></button>
+    <button type="submit" name="submit">Create</button>
 </form>
 </body>
