@@ -5,9 +5,14 @@
         function validate(){
             var pass=document.f1.password.value;
             var cpass=document.f1.cpassword.value;
+            var name=document.f1.f_name.value;
 
             if(pass!=cpass){
                 alert("password must be same");
+                return false;
+            }
+            else if(name==""|| name==NULL){
+                alert("Name fied is required");
                 return false;
             }
             else{
