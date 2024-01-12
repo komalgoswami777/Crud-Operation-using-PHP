@@ -53,12 +53,11 @@ echo '<a href="Form.html" class="button">Add User </a>';
                 <td>'.$row["l_name"].'</td>
                 <td>'.$row["email"].'</td>
                 <td>'.$row["mobile"].'</td>
-                <td><a href="session.php?updateid='.$row["id"].'" style="padding-right:5px">Update</a>
+                <td><a href="update.php?updateid='.$row["id"].'" style="padding-right:5px">Update</a>
                 <a href="delete.php?deleteid='.$row["id"].'" style="padding-left:5px">Delete</a>
                 </td></tr>' ;
-                session_start();
-                $_SESSION["email"]=$row["email"];
-                $_SESSION["password"]=$row["password"];
+                // $_SESSION["email"]=$row["email"];
+                // $_SESSION["password"]=$row["password"];
             }
             echo '</table>';
         }
