@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<title>Demo Form</title>
+<head>
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
+        *{
+         margin: auto;
+         font-family: 'Poppins', sans-serif;
+        }
+        form{
+            width: 70%;
+            margin: 50px;
+            padding: 10px;
+        }
+        input{
+            border: 1px solid black;
+        }
+        input,label,button{
+            padding: 5px;
+            margin: 10px;
+        }
+        input:hover{
+          border: 1px solid #0404fe;
+        }
+        button{
+            background-color: #1133ff;
+            color: white;
+            border: none;
+            padding: 10px;
+        }
+    </style>
+
+
+</head>
+<body>
+<form action="login.php" method="POST">
+          <label for="">email</label><br>
+          <input type="email" name="email" id=""><br>
+          <label for="">Password</label><br>
+          <input type="password" name="password" id=""><br>
+           
+    <button type="submit" name="submit">Login</button>
+</form>
+</body>
