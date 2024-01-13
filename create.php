@@ -28,7 +28,7 @@ $result=mysqli_query($conn,$query);
 
 if($result){
     // echo ("inserted");
-     header('location:read.php');
+     header('location:login.html');
 }
 else{
     die("ERROR!!!");

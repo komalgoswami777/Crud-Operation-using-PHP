@@ -1,12 +1,22 @@
 <?php
 session_start();
+
 include('connection.php');
 
+// echo $_SESSION['loginp'];
+// echo $_SESSION['editp'];
+
+echo $_SESSION['id'];
 
 
-$id=$_GET['updateid'];
+$id=$_SESSION['id'];
+
+
+
 $query="SELECT f_name,l_name,password,cpassword,email,mobile from user where id=$id";
 $result=mysqli_query($conn,$query);
+
+
 $row=mysqli_fetch_assoc($result);
 
 $f_name=$row['f_name'];
@@ -15,6 +25,9 @@ $password=$row['password'];
 $cpassword=$row['cpassword'];
 $email=$row['email'];
 $mobile=$row['mobile'];
+
+$_SESSION['edite']=$email;
+$_SESSION['editp']=$password;
 
 if(isset($_POST['submit'])){
 
@@ -40,8 +53,7 @@ $mobile=$_REQUEST['mobile'];
     else{
         die("ERROR!!!");
     }
-    $_SESSION['email']=$row['email'];
-    $_SESSION['password']=$row['password'];
+  
 }
 
 mysqli_close($conn);

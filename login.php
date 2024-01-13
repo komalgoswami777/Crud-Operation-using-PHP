@@ -1,8 +1,14 @@
 <?php
+session_start();
+
 include("connection.php");
 
       $email=$_POST['email'];
       $password=$_POST['password'];
+      $_SESSION['logine']=$email;
+      $_SESSION['loginp']=$password;
+
+
 
   $sql="SELECT * from user where email='$email'and password=$password";
 

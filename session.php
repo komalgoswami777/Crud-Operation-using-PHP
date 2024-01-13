@@ -1,38 +1,31 @@
 <?php
+session_start();
+
 include("connection.php");
 
-      session_start();
-      $email=$_SESSION['email'];
-      $password=$_SESSION['password'];
-      print_r ($_SESSION);
-      $sql="SELECT * from user where email='$email'and password=$password ";
+$id=$_GET['updateid'];
+$_SESSION['id']=$id;
+
+$query="SELECT f_name,l_name,password,cpassword,email,mobile from user where id=$id";
+$result=mysqli_query($conn,$query);
+
+$row=mysqli_fetch_assoc($result);
+
+$password=$row['password'];
+$email=$row['email'];
+
+$_SESSION['edite']=$email;
+$_SESSION['editp']=$password;
+
+     
 
 
-  $result=mysqli_query($conn,$sql);
 
-    if(mysqli_num_rows($result)>0){
-
-        echo '<script>
-             alert("Logged in !!!.");
-             </script>';
+      if($_SESSION['logine']==$_SESSION['edite'] && $_SESSION['loginp']==$_SESSION['editp']){
         header("location:update.php");
+      }else{
+        echo '<script>
+        alert("Access Denied !!!.");
+        </script>';
       }
-
-    //   $row=mysqli_fetch_assoc($result);
-
-    //     if($row['email']===$email && $row['password']===$password){
-
-    //       echo '<script>
-    //       alert("Logged in !!!.");
-    //       </script>';
-    //       header("location:update.php");
-    //     }
-    //     else{
-
-    //         echo ("No accesss");
-        // header("location:read.php");
-
-
-   
-    mysqli_close($conn);
-?>
+     ?>
